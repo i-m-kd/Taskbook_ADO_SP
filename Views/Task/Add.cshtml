@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Task";
+}
+
+<h1>Task</h1>
+<p>Add your tasks in this page</p>
+
+<form method="post" asp-controller="Task" asp-action="Add">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name of Task</label>
+        <input type="text" class="form-control" name="Name" placeholder="Wash Dishes" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Assigned By</label>
+        <input type="text" class="form-control" name="AssignedBy" placeholder="Mom" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1"> Assigned To</label>
+        <input type="text" class="form-control" name="AssignedTo" placeholder="Dad" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Duration</label>
+        <input type="number" class="form-control" name="Duration" placeholder="2.5" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Date</label>
+        <input type="date" class="form-control" name="Date" required>
+    </div>
+    <div >
+        <button type="submit" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+    </div>
+</form>
+

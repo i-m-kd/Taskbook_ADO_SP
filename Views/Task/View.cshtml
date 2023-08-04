@@ -1,0 +1,54 @@
+﻿@model List<ADOTaskbook.Models.TaskModel>
+
+@{
+    ViewData["Title"] = "View All Tasks";
+}
+
+<h1>View All Tasks</h1>
+
+@if (Model!= null && Model.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Assigned By</th>
+                <th>Assigned To</th>
+                <th>Duration</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.Id</td>
+                    <td>@task.Name</td>
+                    <td>@task.AssignedBy</td>
+                    <td>@task.AssignedTo</td>
+                    <td>@task.Duration</td>
+                    <td>@task.Date.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Task" asp-action="Update" asp-route-id="@task.Id">Modify</a>
+                        <a class="btn btn-danger" asp-controller="Task" asp-action="Delete" asp-route-id="@task.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No tasks found.</p>
+}
+
+<div>
+    <form asp-controller="Task" asp-action="Add" method="post">
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Add New Task</button>
+        </div>
+    </form>
+</div>
+
